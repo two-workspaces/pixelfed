@@ -1,11 +1,11 @@
-FROM ghcr.io/jippi/docker-pixelfed:v0.15.2-nginx-8.4-bookworm
+FROM ghcr.io/jippi/docker-pixelfed:v0.15.2-nginx-8.5-bookworm
 
 # Combined single-service image for Railway: nginx + php-fpm + horizon (queues)
 # + scheduler in one container sharing one storage volume — Railway volumes
 # can't be shared across services.
 # Files are overwritten (not deleted): Railway's layer flattening resurrects
 # whiteout'd files.
-ENV DOCKER_APP_PHP_VERSION=8.4
+ENV DOCKER_APP_PHP_VERSION=8.5
 
 # Horizon runs a master, one supervisor per pool and the pool workers, each a
 # ~100 MB PHP process: 10+ processes (~1 GB) on Pixelfed 0.15's five pools, so
